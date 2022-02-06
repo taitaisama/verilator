@@ -989,6 +989,10 @@ void V3Options::parseOptsList(FileLine* fl, const string& optdir, int argc, char
         m_outFormatOk = true;
         m_systemC = false;
     });
+    DECL_OPTION("-euvm", CbCall, [this]() {
+	m_outFormatOk = true;
+	m_euvm = true;
+    });
     DECL_OPTION("-cdc", OnOff, &m_cdc);
     DECL_OPTION("-clk", CbVal, callStrSetter(&V3Options::addClocker));
     DECL_OPTION("-no-clk", CbVal, callStrSetter(&V3Options::addNoClocker));
